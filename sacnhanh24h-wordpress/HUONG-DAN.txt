@@ -1,0 +1,35 @@
+WEBSITE SACNHANH24H – BẢN WORDPRESS
+=====================================
+
+TRONG GÓI NÀY
+  install.sh      File cài đặt tự động (chạy trên server)
+  sacnhanh24h/    Theme giao diện Sacnhanh24h
+
+CÀI LÊN SERVER (làm 1 lần)
+  1. Trên máy tính, mở PowerShell, gửi file lên server:
+       cd Downloads
+       scp sacnhanh24h-wordpress.zip root@IP_SERVER:/root/
+  2. Đăng nhập server:
+       ssh root@IP_SERVER
+  3. Chạy:
+       cd /root && unzip -o sacnhanh24h-wordpress.zip && bash sacnhanh24h-wordpress/install.sh
+  4. Nhập tên đăng nhập + mật khẩu quản trị khi được hỏi. Đợi chữ "CÀI ĐẶT XONG!".
+
+ĐĂNG NHẬP QUẢN TRỊ
+  https://sacnhanh24h.vn/wp-admin
+
+SỬA GÌ Ở ĐÂU
+  Chữ, ảnh banner, màu, bảng giá, liên hệ, STK ...  Giao diện → Tùy biến → "Trang chủ Sacnhanh24h"
+  Logo, favicon, tên website trên tab                Giao diện → Tùy biến → Nhận dạng trang
+  Trạm sạc trên bản đồ                               Menu "Trạm sạc"
+  Dự án / Đối tác / Ban lãnh đạo / Hãng xe           Menu cùng tên (ảnh: hộp "Ảnh đại diện")
+  Khách gửi yêu cầu tư vấn                           Menu "Yêu cầu tư vấn"
+  Menu đầu trang                                     Giao diện → Menu
+  Tin tức, trang chính sách                          Bài viết / Trang
+
+CẬP NHẬT THEME SAU NÀY
+  Gửi gói zip mới lên server và chạy lại lệnh ở bước 3.
+  Script tự nhận ra WordPress đã cài và CHỈ thay theme, nội dung giữ nguyên.
+
+QUAY LẠI WEBSITE TĨNH CŨ (nếu cần)
+  cp /root/nginx-sacnhanh24h-ban-cu.conf /etc/nginx/sites-available/sacnhanh24h && systemctl reload nginx
