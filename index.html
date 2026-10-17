@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sacnhanh24h | Trạm sạc nhanh xe điện 24/7</title>
+<meta name="description" content="Sacnhanh24h – Công ty Cổ phần Trạm sạc nhanh 24h. Hệ thống trạm sạc nhanh xe điện, giải pháp sạc cho gia đình, doanh nghiệp và không gian công cộng.">
+<link rel="canonical" href="https://sacnhanh24h.vn/">
+<meta property="og:title" content="Sacnhanh24h | Trạm sạc nhanh xe điện 24/7">
+<meta property="og:description" content="Tìm trạm sạc nhanh gần bạn và nhận tư vấn lắp đặt trạm sạc xe điện.">
+<meta property="og:image" content="https://sacnhanh24h.vn/assets/img/banner.jpg">
+<meta property="og:url" content="https://sacnhanh24h.vn/">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- ================= 1. HEADER ================= -->
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#">
+      <img src="assets/img/logo.png" alt="Logo Sacnhanh24h">
+      <span class="brand-name">Sacnhanh24h<small>Trạm sạc nhanh 24h</small></span>
+    </a>
+    <nav id="nav" aria-label="Menu chính">
+      <ul>
+        <li><a href="#">Trang chủ</a></li>
+        <li><a href="#tram-sac">Trạm sạc</a></li>
+        <li><a href="#bang-gia">Bảng giá</a></li>
+        <li><a href="#du-an">Dự án</a></li>
+        <li><a href="#doi-tac">Đối tác</a></li>
+        <li><a href="#gioi-thieu">Giới thiệu</a></li>
+      </ul>
+    </nav>
+    <a class="btn" href="#lien-he">Liên hệ</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Mở menu">☰</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-banner">
+      <img src="assets/img/banner.jpg" alt="Sacnhanh24h – Công ty Cổ phần Trạm sạc nhanh 24h" width="1402" height="593">
+    </div>
+    <div class="hero-intro">
+      <h1>Sạc nhanh xe điện,<br><em>mọi lúc 24/7</em></h1>
+      <div>
+        <p>Hệ thống trạm sạc nhanh DC phủ khắp các tỉnh thành. Chúng tôi nhận cung cấp, lắp đặt và bảo trì trạm sạc trọn gói cho chủ đầu tư, tòa nhà và gia đình.</p>
+        <div class="hero-cta">
+          <a class="btn lime" href="#tram-sac">Tìm trạm sạc</a>
+          <a class="btn ghost" href="#lien-he">Nhận tư vấn</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Báo giá theo khung giờ -->
+<section class="pricing" id="bang-gia">
+  <div class="wrap price-box">
+    <div>
+      <span class="kicker">Ưu đãi tháng 10</span>
+      <h2>Giá sạc theo khung giờ</h2>
+      <p>Sạc vào giờ thấp điểm để tiết kiệm hơn. Giá áp dụng cho tất cả trạm sạc nhanh DC của Sacnhanh24h.</p>
+      <a class="btn lime" href="#tram-sac">Xem trạm gần bạn</a>
+    </div>
+    <div>
+      <div class="tou">
+        <div class="tou-card low"><h4>Thấp điểm</h4><div class="time">22:00 – 04:00</div><div class="val">3.500<small> đ/kWh</small></div></div>
+        <div class="tou-card"><h4>Bình thường</h4><div class="time">04:00 – 09:30 · 11:30 – 17:00 · 20:00 – 22:00</div><div class="val">4.200<small> đ/kWh</small></div></div>
+        <div class="tou-card"><h4>Cao điểm</h4><div class="time">09:30 – 11:30 · 17:00 – 20:00</div><div class="val">4.900<small> đ/kWh</small></div></div>
+      </div>
+      <div class="note">* Giá minh họa, đã bao gồm VAT. Cập nhật theo bảng giá thực tế.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 2. HỆ THỐNG TRẠM SẠC ================= -->
+<section class="stations" id="tram-sac">
+  <div class="wrap">
+    <h2>Hệ thống <span>trạm sạc</span></h2>
+    <div class="filters">
+      <form class="search" id="searchForm" role="search">
+        <input id="q" type="search" placeholder="Tìm kiếm tên trạm sạc" aria-label="Tìm kiếm tên trạm sạc">
+        <button type="submit" aria-label="Tìm kiếm"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
+      </form>
+      <select class="select" id="province" aria-label="Tỉnh/Thành phố"><option value="">Tỉnh/Thành phố</option></select>
+      <select class="select" id="district" aria-label="Quận/Huyện" disabled><option value="">Quận/Huyện</option></select>
+    </div>
+    <div class="st-grid">
+      <div class="st-list-wrap">
+        <p class="st-count"><span id="count">0</span> trạm sạc</p>
+        <div class="st-list" id="list"></div>
+      </div>
+      <div id="map" aria-label="Bản đồ trạm sạc"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 3. CÁC PHẦN TIẾP THEO ================= -->
+<section class="about" id="gioi-thieu">
+  <div class="wrap">
+    <div>
+      <span class="kicker">Về chúng tôi</span>
+      <h2 class="sec-title">Sacnhanh24h <span>tại Việt Nam</span></h2>
+      <p>Công ty Cổ phần Trạm sạc nhanh 24h hướng đến trở thành nhà cung cấp giải pháp sạc xe điện tích hợp hàng đầu tại Việt Nam, với hệ thống sạc toàn diện cho nhà ở, chung cư, tòa nhà thương mại và dọc các tuyến cao tốc chính.</p>
+      <div class="target">
+        <div><strong>24/7</strong><span>trạm sạc luôn sẵn sàng</span></div>
+        <div><strong>40+</strong><span>trạm sạc đang hoạt động</span></div>
+        <div><strong>120kW</strong><span>công suất sạc nhanh DC</span></div>
+      </div>
+    </div>
+    <div class="about-logo"><img src="assets/img/logo.png" alt="Logo Sacnhanh24h"></div>
+  </div>
+</section>
+
+<section id="doi-tac">
+  <div class="wrap">
+    <span class="kicker">Hợp tác chiến lược</span>
+    <h2 class="sec-title">Đối tác chính</h2>
+    <div class="partner">
+      <div>
+        <h3>Mạng lưới sạc dọc tuyến cao tốc Bắc – Nam</h3>
+        <p>Triển khai chuỗi trạm sạc DC công suất cao dọc hành trình liên tỉnh, giúp các chuyến đi đường dài bằng xe điện trở nên liền mạch và yên tâm.</p>
+        <a class="btn ghost" href="#">Đọc bài viết</a>
+      </div>
+      <div class="ph">Ảnh đối tác 1</div>
+    </div>
+    <div class="partner">
+      <div>
+        <h3>Hợp tác cùng hãng xe điện</h3>
+        <p>Đồng hành cùng các hãng xe để chủ sở hữu xe điện có thể tiếp cận điểm sạc nhanh, thuận tiện ngay từ ngày nhận xe.</p>
+        <a class="btn ghost" href="#">Đọc bài viết</a>
+      </div>
+      <div class="ph">Ảnh đối tác 2</div>
+    </div>
+    <div class="partner">
+      <div>
+        <h3>Chủ đầu tư bất động sản</h3>
+        <p>Trang bị trạm sạc cho các dự án mới, giúp tòa nhà sẵn sàng cho xu hướng di chuyển xanh.</p>
+        <a class="btn ghost" href="#">Đọc bài viết</a>
+      </div>
+      <div class="ph">Ảnh đối tác 3</div>
+    </div>
+  </div>
+</section>
+
+<section class="projects" id="du-an">
+  <div class="wrap">
+    <span class="kicker">Đã triển khai</span>
+    <h2 class="sec-title">Dự án chính</h2>
+    <div class="tabs" role="tablist">
+      <button class="tab" role="tab" aria-selected="true" data-tab="tm">Thương mại &amp; Công nghiệp</button>
+      <button class="tab" role="tab" aria-selected="false" data-tab="ch">Căn hộ cao cấp &amp; Nhà riêng</button>
+    </div>
+    <div class="proj-grid" id="projGrid"></div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Tương thích</span>
+    <h2 class="sec-title">Hãng xe</h2>
+    <div class="brands-row">
+      <div class="car">LOGO 1</div><div class="car">LOGO 2</div><div class="car">LOGO 3</div>
+      <div class="car">LOGO 4</div><div class="car">LOGO 5</div><div class="car">LOGO 6</div>
+    </div>
+  </div>
+</section>
+
+<section class="values">
+  <div class="wrap values-grid">
+    <div class="value">
+      <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#073320" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0114 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+      <h3>Mạng lưới rộng khắp</h3>
+      <p>Trạm sạc trải khắp các tỉnh thành, giúp chủ xe điện dễ dàng tìm điểm sạc công cộng.</p>
+    </div>
+    <div class="value">
+      <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#073320" stroke-width="2"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <h3>Giải pháp toàn diện</h3>
+      <p>Từ bộ sạc tại nhà đến trạm sạc công cộng, kèm phần mềm quản lý và bảo trì định kỳ.</p>
+    </div>
+    <div class="value">
+      <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="#073320"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div>
+      <h3>Sạc nhanh, an toàn</h3>
+      <p>Bộ sạc DC công suất cao, đạt chuẩn an toàn, vận hành ổn định suốt 24 giờ.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <span class="kicker">Đội ngũ</span>
+    <h2 class="sec-title">Ban lãnh đạo</h2>
+    <div class="leaders">
+      <div class="leader"><div class="avatar">A</div><h4>[Họ và tên]</h4><div class="role">Chủ tịch HĐQT</div><p>Mô tả ngắn về kinh nghiệm và vai trò.</p></div>
+      <div class="leader"><div class="avatar">B</div><h4>[Họ và tên]</h4><div class="role">Tổng Giám đốc</div><p>Mô tả ngắn về kinh nghiệm và vai trò.</p></div>
+      <div class="leader"><div class="avatar">C</div><h4>[Họ và tên]</h4><div class="role">Giám đốc Kỹ thuật</div><p>Mô tả ngắn về kinh nghiệm và vai trò.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="lien-he">
+  <div class="wrap">
+    <div>
+      <span class="kicker">Kết nối</span>
+      <h2 class="sec-title">Liên hệ với chúng tôi</h2>
+      <dl class="info">
+        <dt>Công ty</dt><dd>Công ty Cổ phần Trạm sạc nhanh 24h</dd>
+        <dt>Thương hiệu</dt><dd>Sacnhanh24h</dd>
+        <dt>Email</dt><dd><a href="mailto:sacnhanh24h@gmail.com">sacnhanh24h@gmail.com</a></dd>
+        <dt>Website</dt><dd><a href="https://sacnhanh24h.vn">sacnhanh24h.vn</a></dd>
+        <dt>Địa chỉ</dt><dd>[Địa chỉ trụ sở]</dd>
+        <dt>Hotline</dt><dd>[Số điện thoại]</dd>
+      </dl>
+      <div class="bank">
+        <span class="lbl">Tài khoản ngân hàng</span>
+        <div class="num"><span id="bankNum">69688788</span><button class="copy-btn" id="copyBank" type="button">Sao chép</button></div>
+        <div>Ngân hàng Techcombank · Chủ tài khoản: Công ty Cổ phần Trạm sạc nhanh 24h</div>
+      </div>
+    </div>
+    <form class="contact-form" id="contactForm">
+      <h3>Nhận tư vấn lắp đặt</h3>
+      <input id="cName" required placeholder="Họ và tên">
+      <input id="cPhone" required placeholder="Số điện thoại">
+      <input id="cEmail" type="email" placeholder="Email">
+      <textarea id="cMsg" placeholder="Bạn cần lắp trạm sạc ở đâu, cho loại xe nào?"></textarea>
+      <button class="btn" type="submit">Gửi yêu cầu</button>
+      <div class="ok" id="ok" hidden>Đang mở ứng dụng email để gửi tới sacnhanh24h@gmail.com.</div>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <div class="f-brand"><img src="assets/img/logo.png" alt="Logo Sacnhanh24h"><span class="brand-name">Sacnhanh24h<small>Trạm sạc nhanh 24h</small></span></div>
+        <p style="margin-top:16px">Công ty Cổ phần Trạm sạc nhanh 24h<br>sacnhanh24h@gmail.com · sacnhanh24h.vn</p>
+        <div class="stores"><a class="store" href="#">Google Play</a><a class="store" href="#">App Store</a></div>
+      </div>
+      <div><h5>Liên kết nhanh</h5><ul><li><a href="#">Trang chủ</a></li><li><a href="#tram-sac">Trạm sạc</a></li><li><a href="#bang-gia">Bảng giá</a></li><li><a href="#du-an">Dự án</a></li></ul></div>
+      <div><h5>Hỗ trợ</h5><ul><li><a href="#">Hướng dẫn sạc</a></li><li><a href="#">Câu hỏi thường gặp</a></li><li><a href="#lien-he">Liên hệ</a></li></ul></div>
+      <div><h5>Thanh toán</h5><ul><li>Techcombank</li><li>STK: 69688788</li><li>Công ty CP Trạm sạc nhanh 24h</li></ul></div>
+    </div>
+    <div class="copyright"><span>© <span id="year">2026</span> Sacnhanh24h. Bảo lưu mọi quyền.</span><span>sacnhanh24h.vn</span></div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="assets/js/stations.js"></script>
+<script src="assets/js/main.js"></script>
+</body>
+</html>
