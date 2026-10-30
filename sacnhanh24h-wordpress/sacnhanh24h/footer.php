@@ -47,6 +47,16 @@
         </ul>
       </div>
     </div>
+    <nav class="f-policy" aria-label="Chính sách">
+      <?php
+      wp_nav_menu( array(
+          'theme_location' => 'footer_policy',
+          'container'      => false,
+          'depth'          => 1,
+          'fallback_cb'    => 's24_policy_menu_fallback',
+      ) );
+      ?>
+    </nav>
     <div class="copyright">
       <span>© <?php echo esc_html( wp_date( 'Y' ) ); ?> <?php echo esc_html( s24_mod( 'copyright' ) ); ?></span>
       <span><?php echo esc_html( s24_mod( 'website' ) ); ?></span>
