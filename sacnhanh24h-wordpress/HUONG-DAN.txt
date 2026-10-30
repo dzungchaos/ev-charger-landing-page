@@ -29,19 +29,25 @@ SỬA GÌ Ở ĐÂU
   4 trang chính sách (điều khoản, quyền riêng tư,    Trang → Tất cả trang
     xoá dữ liệu, hoàn tiền)
   Link chính sách ở chân trang                       Giao diện → Menu → vị trí "Chân trang – Chính sách"
-                                                     (chưa gán menu thì tự hiện đủ 4 trang)
+                                                     (chưa gán menu thì tự hiện đủ 4 trang, đúng ngôn ngữ
+                                                     của trang đang xem, kèm link chuyển Việt/Anh)
 
 TRANG CHÍNH SÁCH
   Đường dẫn cố định (đã/sẽ khai ở App Store, Google Play, Facebook Developers):
-    /dieu-khoan-su-dung/     Điều khoản sử dụng
-    /chinh-sach-bao-mat/     Chính sách quyền riêng tư và bảo mật
-    /xoa-du-lieu/            Hướng dẫn xoá tài khoản và dữ liệu
-    /chinh-sach-hoan-tien/   Chính sách hoàn tiền và khiếu nại
-  - Sửa tiêu đề, nội dung thoải mái. Đường dẫn bị theme khoá: đổi trong ô "Đường dẫn" sẽ tự quay về.
-  - KHÔNG chuyển 4 trang này sang Bản nháp/Riêng tư và không xoá: kho ứng dụng sẽ báo link hỏng.
+    Tiếng Việt                 Tiếng Anh
+    /dieu-khoan-su-dung/       /en/terms-of-use/       Điều khoản sử dụng
+    /chinh-sach-bao-mat/       /en/privacy-policy/     Chính sách quyền riêng tư và bảo mật
+    /xoa-du-lieu/              /en/account-deletion/   Hướng dẫn xoá tài khoản và dữ liệu
+    /chinh-sach-hoan-tien/     /en/refund-policy/      Chính sách hoàn tiền và khiếu nại
+                               /en/                    Mục lục bản tiếng Anh (trang cha của 4 trang trên)
+  - Sửa tiêu đề, nội dung thoải mái. Đường dẫn và trang cha bị theme khoá: đổi sẽ tự quay về.
+  - KHÔNG chuyển các trang này sang Bản nháp/Riêng tư và không xoá: kho ứng dụng sẽ báo link hỏng.
     Lỡ xoá thì chạy lại lệnh ở bước 3 (mục CẬP NHẬT THEME), trang bị thiếu sẽ được tạo lại bằng nội dung gốc.
-  - Nội dung hiện là BẢN NHÁP, cần pháp chế duyệt. Khi duyệt xong: điền các chỗ [CẦN ĐIỀN: …],
-    ghi ngày hiệu lực, rồi xoá ô vàng "BẢN NHÁP – CHƯA CÓ HIỆU LỰC" ở đầu mỗi trang.
+  - Nội dung hiện là BẢN NHÁP, cần pháp chế duyệt. Khi duyệt xong: điền các chỗ [CẦN ĐIỀN: …]
+    (bản tiếng Anh ghi [TO BE FILLED: …]), ghi ngày hiệu lực, rồi xoá ô vàng "BẢN NHÁP" / "DRAFT"
+    ở đầu mỗi trang.
+  - Bản tiếng Việt là bản gốc, bản tiếng Anh ghi rõ "bản tiếng Việt được ưu tiên áp dụng".
+    Sửa bản tiếng Việt thì sửa luôn bản tiếng Anh tương ứng cho khớp.
   - Mỗi lần đổi nội dung điều khoản/chính sách: tăng số phiên bản ở đầu trang và báo đội phần mềm
     để App hỏi khách đồng ý lại.
 
