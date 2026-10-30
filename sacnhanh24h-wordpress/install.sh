@@ -55,6 +55,8 @@ if [ -f "$WEBROOT/wp-config.php" ] && $WP core is-installed >/dev/null 2>&1; the
   rm -rf "$WEBROOT/wp-content/themes/sacnhanh24h"
   cp -r "$THEME_SRC" "$WEBROOT/wp-content/themes/sacnhanh24h"
   chown -R www-data:www-data "$WEBROOT/wp-content/themes/sacnhanh24h"
+  # Tạo các trang chính sách còn thiếu; trang đã có không bị ghi đè
+  $WP eval 's24_seed_policy_pages();'
   $WP cache flush >/dev/null 2>&1 || true
   say "XONG. Mở https://$DOMAIN rồi bấm Ctrl + F5 để xem bản mới."
   exit 0
@@ -115,6 +117,7 @@ say "Bước 5/6: Cài theme Sacnhanh24h và nội dung mẫu"
 cp -r "$THEME_SRC" "$WEBROOT/wp-content/themes/sacnhanh24h"
 $WP theme activate sacnhanh24h --quiet
 $WP eval 's24_seed_content();'
+$WP eval 's24_seed_policy_pages();'
 chown -R www-data:www-data "$WEBROOT"
 find "$WEBROOT" -type d -exec chmod 755 {} \;
 find "$WEBROOT" -type f -exec chmod 644 {} \;
