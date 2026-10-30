@@ -43,13 +43,78 @@ TRANG CHÍNH SÁCH
   - Sửa tiêu đề, nội dung thoải mái. Đường dẫn và trang cha bị theme khoá: đổi sẽ tự quay về.
   - KHÔNG chuyển các trang này sang Bản nháp/Riêng tư và không xoá: kho ứng dụng sẽ báo link hỏng.
     Lỡ xoá thì chạy lại lệnh ở bước 3 (mục CẬP NHẬT THEME), trang bị thiếu sẽ được tạo lại bằng nội dung gốc.
-  - Nội dung hiện là BẢN NHÁP, cần pháp chế duyệt. Khi duyệt xong: điền các chỗ [CẦN ĐIỀN: …]
-    (bản tiếng Anh ghi [TO BE FILLED: …]), ghi ngày hiệu lực, rồi xoá ô vàng "BẢN NHÁP" / "DRAFT"
-    ở đầu mỗi trang.
+  - Nội dung hiện là BẢN NHÁP, cần pháp chế duyệt. Khi duyệt xong: rà các giá trị trong
+    "SỔ GIÁ TRỊ TẠM" bên dưới, rồi xoá ô vàng "BẢN NHÁP" / "DRAFT" ở đầu mỗi trang.
   - Bản tiếng Việt là bản gốc, bản tiếng Anh ghi rõ "bản tiếng Việt được ưu tiên áp dụng".
     Sửa bản tiếng Việt thì sửa luôn bản tiếng Anh tương ứng cho khớp.
   - Mỗi lần đổi nội dung điều khoản/chính sách: tăng số phiên bản ở đầu trang và báo đội phần mềm
     để App hỏi khách đồng ý lại.
+
+  SỔ GIÁ TRỊ TẠM – PHẢI RÀ LẠI TRƯỚC KHI PHÁT HÀNH APP (ghi ngày 30/10/2026)
+  Chủ dự án cho điền theo đề xuất để trang không còn chỗ trống; các giá trị dưới đây CHƯA được
+  chủ đầu tư/pháp chế/kế toán xác nhận. Sai ở đâu thì sửa ở cả bản tiếng Việt và bản tiếng Anh.
+  Đã đối chiếu với giấy ĐKKD (không cần rà): tên công ty, mã số doanh nghiệp 0111639874 (đăng ký
+  lần đầu 24/09/2026), trụ sở, điện thoại 0921688788, email sacnhanh24h@gmail.com.
+
+  a) Đối chiếu với App bản phát hành
+    1. Đường vào nút xoá tài khoản: Tài khoản → Quyền riêng tư → Xoá tài khoản
+       (/xoa-du-lieu/, /en/account-deletion/). Đặt theo thiết kế BA: màn 12 vào từ mục
+       "Quyền riêng tư" của màn 07.
+    2. Vị trí nút "Yêu cầu bản sao dữ liệu của tôi": Tài khoản → Quyền riêng tư
+       (/chinh-sach-bao-mat/, /en/privacy-policy/). Theo thiết kế BA màn 07.
+    3. Tên App "Sạc Nhanh 24H" phải trùng đúng tên hiển thị trên App Store và Google Play
+       (Google Play bắt buộc trang xoá dữ liệu ghi đúng tên App trên kho). Phiếu đề nghị gửi cổng
+       thanh toán ngày 13/09/2026 ghi tên App là "Sacnhanh24h" – cần thống nhất một tên.
+
+  b) Thông tin công ty tự đề xuất
+    4. Ngày có hiệu lực 01/11/2026 (chủ dự án chọn): nếu pháp chế chưa duyệt kịp thì dời ngày.
+    5. Giờ hotline: 8:00 – 17:30, thứ Hai đến thứ Sáu, trừ ngày nghỉ lễ (xoá dữ liệu, hoàn tiền).
+       Công ty phải bố trí người trực đúng giờ này.
+    6. Đầu mối bảo vệ dữ liệu cá nhân: Bộ phận Chăm sóc khách hàng, email + hotline chung
+       (bảo mật, xoá dữ liệu). Luật 91/2025 yêu cầu chỉ định bộ phận/nhân sự bảo vệ dữ liệu –
+       cần quyết định chính thức của công ty.
+    7. Bản tiếng Anh ghi tên công ty là "bản dịch không chính thức: Tram Sac Nhanh 24H Joint Stock
+       Company" vì ĐKKD không đăng ký tên tiếng nước ngoài.
+
+  c) Nhà cung cấp (trang bảo mật, mục 4)
+    8. SMS, email gửi OTP: ghi chung "nhà cung cấp dịch vụ SMS và email", không nêu tên
+       (code không cho biết; tài liệu API nhắc eSMS/Viettel). Ký hợp đồng xong thì ghi tên.
+    9. Thông báo đẩy: Firebase Cloud Messaging (Google) và Apple Push Notification service –
+       theo ev-common-lib AppPush.java; cần đội App xác nhận.
+   10. Hoá đơn điện tử: MISA meInvoice – theo ev-payment-wallet (chọn ngày 27-28/10); cần kế toán
+       xác nhận đã ký.
+   11. Hạ tầng máy chủ: ghi chung, không nêu tên và nơi đặt. Nếu máy chủ đặt ở nước ngoài thì phải
+       sửa câu "chuyển dữ liệu ra nước ngoài" và lập hồ sơ đánh giá tác động (Luật 91/2025 Đ.20).
+
+  d) Thời hạn (trang bảo mật, xoá dữ liệu)
+   12. Xử lý yêu cầu của khách: xác nhận đã nhận trong 02 ngày làm việc; gửi bản sao dữ liệu
+       trong 10 ngày; xoá một phần dữ liệu trong 20 ngày; yêu cầu khác trả lời trong 15 ngày.
+       Lấy bằng mức trần NĐ 356/2025 Điều 5 – pháp chế xác nhận "ngày" hay "ngày làm việc".
+       Xoá toàn bộ tài khoản vẫn là 30 ngày theo hệ thống (dài hơn mức 20 ngày của NĐ 356 – đã báo).
+   13. Bản ghi đồng ý điều khoản: giữ trong thời gian dùng + 03 năm sau khi xoá tài khoản
+       (theo thời hiệu khởi kiện hợp đồng 03 năm). ⚠ Hệ thống chưa có job xoá bản ghi này.
+   14. Nhật ký an ninh: tối thiểu 24 tháng, tối đa 36 tháng. ⚠ audit_log hiện giữ vô hạn,
+       cần job xoá sau 36 tháng.
+   15. Phiếu hỗ trợ, ảnh đính kèm, đánh giá: 03 năm kể từ khi đóng phiếu; khách xin xoá sớm qua
+       email/hotline. ⚠ Chưa có job xoá; CMS không xoá được ảnh khách tải lên, đánh giá chỉ ẩn
+       được – xoá theo yêu cầu phải nhờ đội kỹ thuật làm tay cho tới khi có chức năng.
+   16. Dữ liệu form "Nhận tư vấn" trên website: 12 tháng kể từ ngày gửi. ⚠ WordPress không tự xoá;
+       quản trị viên xoá tay trong mục "Yêu cầu tư vấn".
+
+  e) Quyết định nghiệp vụ (cần PO, kế toán, pháp chế chốt)
+   17. Số dư Ví khi khách xoá tài khoản hoặc ngừng dùng (điều khoản 11.4, hoàn tiền mục 5–6, xoá
+       dữ liệu): khách liên hệ CSKH; số dư chính chưa dùng được hoàn về tài khoản/ví đã nạp (hoặc
+       tài khoản ngân hàng đứng tên khách nếu không hoàn về nguồn được) trong 07 ngày làm việc,
+       không phí; số dư khuyến mãi bị huỷ. Theo đề xuất BA D-59 và D-131 (cả hai còn chờ duyệt).
+       ⚠ Hệ thống CHƯA có đường hoàn tiền ra ngoài: tới khi làm xong, kế toán phải chuyển khoản tay.
+   18. Hoàn về tài khoản/ví gốc chỉ áp dụng cho số dư chính khi ngừng dùng hoặc xoá tài khoản;
+       hoàn do khiếu nại phiên sạc vẫn vào Ví (đúng hệ thống hiện tại).
+   19. Bên bán khi sạc ở trạm đối tác: Trạm Sạc Nhanh 24H là bên cung cấp dịch vụ, nhận tiền, xuất
+       hoá đơn và chịu trách nhiệm với khách (điều khoản 2.4). Theo luồng tiền thực tế: khách trả
+       vào Ví của nền tảng, đối tác được trả ngoài hệ thống (D-41). Pháp chế/kế toán xác nhận
+       (câu C1, K5).
+   20. Trụ không giữ được chỗ: "lượt đặt chỗ chỉ được ghi nhận trong Ứng Dụng và không ngăn người
+       khác sử dụng cổng sạc" (điều khoản mục 5). PO xác nhận cách nói (D-111, câu A9).
 
 CẬP NHẬT THEME SAU NÀY
   Gửi gói zip mới lên server và chạy lại lệnh ở bước 3.
