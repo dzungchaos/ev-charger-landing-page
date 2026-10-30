@@ -1,19 +1,24 @@
 WEBSITE SACNHANH24H – BẢN WORDPRESS
 =====================================
 
+!! KHÔNG chạy install.sh trên máy chủ hiện tại của sacnhanh24h.vn: website ở đó được cài và
+!! cập nhật theo sổ tay vận hành nội bộ HD-005. install.sh chỉ dành cho một máy chủ
+!! Ubuntu/Debian riêng, trống (mục MÁY CHỦ RIÊNG), và tự dừng nếu máy không trống.
+
 TRONG GÓI NÀY
-  install.sh      File cài đặt tự động (chạy trên server)
+  install.sh      File cài đặt tự động – CHỈ dùng cho máy chủ riêng (mục MÁY CHỦ RIÊNG)
   sacnhanh24h/    Theme giao diện Sacnhanh24h
 
-CÀI LÊN SERVER (làm 1 lần)
-  1. Trên máy tính, mở PowerShell, gửi file lên server:
-       cd Downloads
-       scp sacnhanh24h-wordpress.zip root@IP_SERVER:/root/
-  2. Đăng nhập server:
-       ssh root@IP_SERVER
-  3. Chạy:
-       cd /root && unzip -o sacnhanh24h-wordpress.zip && bash sacnhanh24h-wordpress/install.sh
-  4. Nhập tên đăng nhập + mật khẩu quản trị khi được hỏi. Đợi chữ "CÀI ĐẶT XONG!".
+MÁY CHỦ HIỆN TẠI CỦA sacnhanh24h.vn
+  Cài lần đầu, cập nhật theme, sao lưu: làm theo HD-005. Repo này công khai nên không ghi
+  thông tin máy chủ ở đây.
+  Tóm tắt khi cập nhật theme:
+    1. Đưa thay đổi vào nhánh main trên GitHub.
+    2. Trước thay đổi lớn: sao lưu WordPress theo HD-005.
+    3. Kéo bản mới về máy chủ theo HD-005.
+    4. Đăng nhập wp-admin một lần: bản theme mới có thêm trang chính sách thì trang tự được tạo
+       (trang đã có không bị ghi đè).
+    5. Mở https://sacnhanh24h.vn, bấm Ctrl + F5 để xem bản mới.
 
 ĐĂNG NHẬP QUẢN TRỊ
   https://sacnhanh24h.vn/wp-admin
@@ -42,7 +47,15 @@ TRANG CHÍNH SÁCH
                                /en/                    Mục lục bản tiếng Anh (trang cha của 4 trang trên)
   - Sửa tiêu đề, nội dung thoải mái. Đường dẫn và trang cha bị theme khoá: đổi sẽ tự quay về.
   - KHÔNG chuyển các trang này sang Bản nháp/Riêng tư và không xoá: kho ứng dụng sẽ báo link hỏng.
-    Lỡ xoá thì chạy lại lệnh ở bước 3 (mục CẬP NHẬT THEME), trang bị thiếu sẽ được tạo lại bằng nội dung gốc.
+    Lỡ chuyển vào Thùng rác: Trang → Thùng rác → Khôi phục, rồi mở trang bấm "Đăng" lại.
+    Lỡ xoá hẳn: chạy lệnh tạo lại trang thiếu (trang được tạo lại bằng nội dung gốc trong theme):
+      Máy chủ hiện tại: chạy WP-CLI theo HD-005 với lệnh
+               wp eval 's24_seed_policy_pages();'
+      Máy chủ riêng: chạy lại lệnh ở bước 3 mục MÁY CHỦ RIÊNG.
+  - Sau khi lên host, kiểm từng đường dẫn trả 200 khi CHƯA đăng nhập, ví dụ:
+       curl -s -o /dev/null -w '%{http_code}' https://sacnhanh24h.vn/xoa-du-lieu/
+    Máy chủ không được đặt mật khẩu hay chặn IP trước các trang này; Cài đặt → Đọc: KHÔNG bật
+    "Ngăn chặn các công cụ tìm kiếm". Kho ứng dụng và Facebook phải đọc được trang.
   - Nội dung hiện là BẢN NHÁP, cần pháp chế duyệt. Khi duyệt xong: rà các giá trị trong
     "SỔ GIÁ TRỊ TẠM" bên dưới, rồi xoá ô vàng "BẢN NHÁP" / "DRAFT" ở đầu mỗi trang.
   - Bản tiếng Việt là bản gốc, bản tiếng Anh ghi rõ "bản tiếng Việt được ưu tiên áp dụng".
@@ -116,10 +129,21 @@ TRANG CHÍNH SÁCH
    20. Trụ không giữ được chỗ: "lượt đặt chỗ chỉ được ghi nhận trong Ứng Dụng và không ngăn người
        khác sử dụng cổng sạc" (điều khoản mục 5). PO xác nhận cách nói (D-111, câu A9).
 
-CẬP NHẬT THEME SAU NÀY
-  Gửi gói zip mới lên server và chạy lại lệnh ở bước 3.
-  Script tự nhận ra WordPress đã cài và CHỈ thay theme, nội dung giữ nguyên
-  (trang chính sách nào còn thiếu sẽ được tạo thêm, trang đã có không bị ghi đè).
+MÁY CHỦ RIÊNG (chỉ khi chuyển WordPress sang một máy Ubuntu/Debian riêng, trống)
+  Cài (làm 1 lần):
+  1. Trên máy tính, mở PowerShell, gửi file lên server:
+       cd Downloads
+       scp sacnhanh24h-wordpress.zip root@IP_SERVER:/root/
+  2. Đăng nhập server:
+       ssh root@IP_SERVER
+  3. Chạy:
+       cd /root && unzip -o sacnhanh24h-wordpress.zip && bash sacnhanh24h-wordpress/install.sh
+  4. Nhập tên đăng nhập + mật khẩu quản trị khi được hỏi. Đợi chữ "CÀI ĐẶT XONG!".
 
-QUAY LẠI WEBSITE TĨNH CŨ (nếu cần)
-  cp /root/nginx-sacnhanh24h-ban-cu.conf /etc/nginx/sites-available/sacnhanh24h && systemctl reload nginx
+  Cập nhật theme sau này:
+    Gửi gói zip mới lên server và chạy lại lệnh ở bước 3.
+    Script tự nhận ra WordPress đã cài và CHỈ thay theme, nội dung giữ nguyên
+    (trang chính sách nào còn thiếu sẽ được tạo thêm, trang đã có không bị ghi đè).
+
+  Quay lại website tĩnh cũ (nếu cần):
+    cp /root/nginx-sacnhanh24h-ban-cu.conf /etc/nginx/sites-available/sacnhanh24h && systemctl reload nginx
