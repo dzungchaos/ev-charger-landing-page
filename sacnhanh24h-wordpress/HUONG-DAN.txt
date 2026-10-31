@@ -17,7 +17,7 @@ MÁY CHỦ HIỆN TẠI CỦA sacnhanh24h.vn
     2. Trước thay đổi lớn: sao lưu WordPress theo HD-005.
     3. Kéo bản mới về máy chủ theo HD-005.
     4. Đăng nhập wp-admin một lần: bản theme mới có thêm trang chính sách thì trang tự được tạo
-       (trang đã có không bị ghi đè).
+       (trang đã có không bị ghi đè), menu đầu trang tự có thêm mục "Chính sách" (xem SỬA GÌ Ở ĐÂU).
     5. Mở https://sacnhanh24h.vn, bấm Ctrl + F5 để xem bản mới.
 
 ĐĂNG NHẬP QUẢN TRỊ
@@ -30,6 +30,11 @@ SỬA GÌ Ở ĐÂU
   Dự án / Đối tác / Ban lãnh đạo / Hãng xe           Menu cùng tên (ảnh: hộp "Ảnh đại diện")
   Khách gửi yêu cầu tư vấn                           Menu "Yêu cầu tư vấn"
   Menu đầu trang                                     Giao diện → Menu
+    Mục "Chính sách" (menu con: 4 trang chính sách và "English") được theme thêm vào cuối menu
+    đầu trang MỘT LẦN khi quản trị viên vào wp-admin, sau đó là mục thường: đổi chữ, xếp lại, xoá
+    tuỳ ý. Menu đã có link tới trang chính sách thì theme không thêm. Mục "Chính sách" chỉ để mở
+    menu con, bấm vào không chuyển trang. Chưa gán menu ở vị trí "Menu chính" thì menu mặc định
+    đã có sẵn mục này.
   Tin tức                                            Bài viết
   4 trang chính sách (điều khoản, quyền riêng tư,    Trang → Tất cả trang
     xoá dữ liệu, hoàn tiền)

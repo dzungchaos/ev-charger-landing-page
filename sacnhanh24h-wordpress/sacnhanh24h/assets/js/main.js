@@ -9,8 +9,20 @@
       var open = nav.classList.toggle("open");
       menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
     });
-    nav.querySelectorAll("a").forEach(function (a) {
+    nav.querySelectorAll("li:not(.menu-item-has-children) > a").forEach(function (a) {
       a.addEventListener("click", function () { nav.classList.remove("open"); });
+    });
+    /* Mục có menu con (vd. "Chính sách"): bấm để mở/đóng; rời chuột, bấm ra ngoài hoặc Esc thì đóng */
+    nav.querySelectorAll(".menu-item-has-children > a").forEach(function (a) {
+      var li = a.parentNode;
+      var set = function (open) { li.classList.toggle("open", open); a.setAttribute("aria-expanded", open ? "true" : "false"); };
+      a.setAttribute("aria-haspopup", "true");
+      set(false);
+      a.addEventListener("click", function (e) { e.preventDefault(); set(!li.classList.contains("open")); });
+      li.addEventListener("mouseleave", function () { if (!menuBtn.offsetParent) set(false); });
+      li.addEventListener("focusout", function (e) { if (!li.contains(e.relatedTarget)) set(false); });
+      li.addEventListener("keydown", function (e) { if (e.key === "Escape") { set(false); a.focus(); } });
+      document.addEventListener("click", function (e) { if (!li.contains(e.target)) set(false); });
     });
   }
 

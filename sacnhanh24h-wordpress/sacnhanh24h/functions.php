@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'S24_VER', '1.1.0' );
+define( 'S24_VER', '1.2.0' );
 define( 'S24_DIR', get_template_directory() );
 define( 'S24_URI', get_template_directory_uri() );
 
@@ -147,6 +147,7 @@ function s24_menu_fallback() {
 	foreach ( $items as $i ) {
 		echo '<li><a href="' . esc_url( $i[0] ) . '">' . esc_html( $i[1] ) . '</a></li>';
 	}
+	s24_policy_nav_fallback();
 	echo '</ul>';
 }
 
