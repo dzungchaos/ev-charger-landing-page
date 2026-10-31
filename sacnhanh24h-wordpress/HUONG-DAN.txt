@@ -56,8 +56,9 @@ TRANG CHÍNH SÁCH
        curl -s -o /dev/null -w '%{http_code}' https://sacnhanh24h.vn/xoa-du-lieu/
     Máy chủ không được đặt mật khẩu hay chặn IP trước các trang này; Cài đặt → Đọc: KHÔNG bật
     "Ngăn chặn các công cụ tìm kiếm". Kho ứng dụng và Facebook phải đọc được trang.
-  - Nội dung hiện là BẢN NHÁP, cần pháp chế duyệt. Khi duyệt xong: rà các giá trị trong
-    "SỔ GIÁ TRỊ TẠM" bên dưới, rồi xoá ô vàng "BẢN NHÁP" / "DRAFT" ở đầu mỗi trang.
+  - Chủ dự án cho đăng trước khi pháp chế duyệt (31/10/2026), nên các trang không còn ô "BẢN NHÁP".
+    Trang đã tạo trên site từ bản cũ có ô đó: theme tự gỡ một lần khi quản trị viên vào wp-admin.
+    Pháp chế vẫn cần rà các giá trị trong "SỔ GIÁ TRỊ TẠM" bên dưới; sửa gì thì làm như mục dưới.
   - Bản tiếng Việt là bản gốc, bản tiếng Anh ghi rõ "bản tiếng Việt được ưu tiên áp dụng".
     Sửa bản tiếng Việt thì sửa luôn bản tiếng Anh tương ứng cho khớp.
   - Mỗi lần đổi nội dung điều khoản/chính sách: tăng số phiên bản ở đầu trang và báo đội phần mềm
@@ -80,7 +81,8 @@ TRANG CHÍNH SÁCH
        thanh toán ngày 13/09/2026 ghi tên App là "Sacnhanh24h" – cần thống nhất một tên.
 
   b) Thông tin công ty tự đề xuất
-    4. Ngày có hiệu lực 01/11/2026 (chủ dự án chọn): nếu pháp chế chưa duyệt kịp thì dời ngày.
+    4. Ngày có hiệu lực 01/11/2026 (chủ dự án chọn, đăng trước khi pháp chế duyệt). Pháp chế sửa
+       gì sau ngày này thì ra phiên bản mới, ghi ngày hiệu lực mới và báo đội phần mềm.
     5. Giờ hotline: 8:00 – 17:30, thứ Hai đến thứ Sáu, trừ ngày nghỉ lễ (xoá dữ liệu, hoàn tiền).
        Công ty phải bố trí người trực đúng giờ này.
     6. Đầu mối bảo vệ dữ liệu cá nhân: Bộ phận Chăm sóc khách hàng, email + hotline chung
