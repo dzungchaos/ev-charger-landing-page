@@ -22,6 +22,19 @@ die()  { printf '\n\033[1;31mLỖI: %s\033[0m\n' "$*"; exit 1; }
 command -v apt-get >/dev/null || die "Script này dành cho Ubuntu/Debian. Server của bạn dùng hệ điều hành khác."
 [ -f "$THEME_SRC/style.css" ] || die "Không thấy thư mục theme 'sacnhanh24h' cạnh file install.sh."
 
+# Chỉ cài lên máy trống: script cài thẳng nginx/MariaDB/PHP lên máy và chiếm cổng 80/443,
+# nên dừng nếu máy đang chạy Kubernetes hoặc cổng đã có chương trình khác dùng
+if command -v k3s >/dev/null || command -v kubectl >/dev/null || command -v kubelet >/dev/null || [ -d /etc/rancher ]; then
+  die "Máy này đang chạy Kubernetes. install.sh chỉ dành cho máy chủ riêng, trống (xem mục MÁY CHỦ RIÊNG trong HUONG-DAN.txt)."
+fi
+# Cổng 80/443 phải trống, hoặc do nginx của chính website này giữ (khi chạy lại để cập nhật)
+if command -v ss >/dev/null; then
+  BUSY="$(ss -H -ltnp '( sport = :80 or sport = :443 )' 2>/dev/null | grep -v '"nginx"' || true)"
+  [ -z "$BUSY" ] || die "Cổng 80/443 đang bị chương trình khác dùng:
+$BUSY
+Hãy cài WordPress lên một máy chủ riêng, trống (xem mục MÁY CHỦ RIÊNG trong HUONG-DAN.txt)."
+fi
+
 # ---------- 1. Cài phần mềm ----------
 say "Bước 1/6: Cài PHP, MariaDB (cơ sở dữ liệu), Nginx… (2–5 phút)"
 export DEBIAN_FRONTEND=noninteractive
