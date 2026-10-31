@@ -19,7 +19,7 @@
       wp_nav_menu( array(
           'theme_location' => 'primary',
           'container'      => false,
-          'depth'          => 1,
+          'depth'          => 2,
           'fallback_cb'    => 's24_menu_fallback',
       ) );
       ?>

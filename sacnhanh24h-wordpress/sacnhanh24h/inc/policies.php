@@ -130,6 +130,72 @@ add_action( 'wp_head', function () {
 	}
 } );
 
+/** Menu con của mục "Chính sách" ở đầu trang: 4 trang tiếng Việt và trang mục lục tiếng Anh. đường dẫn => chữ */
+function s24_policy_nav_pages() {
+	$pages = s24_policy_pages();
+	$out   = array();
+	foreach ( $pages as $path => $p ) {
+		if ( 'vi' === $p[2] ) { $out[ $path ] = $p[1]; }
+	}
+	$out['en'] = $pages['en'][1];
+	return $out;
+}
+
+/* Thêm mục "Chính sách" (có menu con) vào cuối menu đầu trang MỘT LẦN, thành mục thường để chủ đầu tư
+   sửa, xếp lại hoặc xoá trong Giao diện → Menu. Menu đã có link tới trang chính sách thì không thêm. */
+add_action( 'admin_init', function () {
+	if ( get_option( 's24_policy_nav' ) || ! current_user_can( 'edit_theme_options' ) ) { return; }
+	$ids = array_map( 'intval', (array) get_option( 's24_policy_pages', array() ) );
+	if ( ! $ids ) { return; } // chưa tạo trang chính sách
+	$menu = (int) ( get_nav_menu_locations()['primary'] ?? 0 );
+	if ( $menu && wp_get_nav_menu_object( $menu ) ) {
+		foreach ( (array) wp_get_nav_menu_items( $menu ) as $item ) {
+			if ( 'post_type' === $item->type && in_array( (int) $item->object_id, $ids, true ) ) {
+				update_option( 's24_policy_nav', 1 );
+				return;
+			}
+		}
+		$parent = wp_update_nav_menu_item( $menu, 0, array(
+			'menu-item-title'  => 'Chính sách',
+			'menu-item-url'    => '#',
+			'menu-item-type'   => 'custom',
+			'menu-item-status' => 'publish',
+		) );
+		if ( is_wp_error( $parent ) ) { return; }
+		foreach ( s24_policy_nav_pages() as $path => $label ) {
+			if ( empty( $ids[ $path ] ) ) { continue; }
+			wp_update_nav_menu_item( $menu, 0, array(
+				'menu-item-title'     => $label,
+				'menu-item-object'    => 'page',
+				'menu-item-object-id' => $ids[ $path ],
+				'menu-item-type'      => 'post_type',
+				'menu-item-parent-id' => $parent,
+				'menu-item-status'    => 'publish',
+			) );
+		}
+	}
+	update_option( 's24_policy_nav', 1 ); // chưa gán menu thì menu mặc định đã có sẵn mục này
+}, 30 );
+
+/* Mục menu trỏ tới trang chính sách tiếng Anh khai đúng ngôn ngữ, như menu chân trang mặc định */
+add_filter( 'nav_menu_link_attributes', function ( $atts, $item ) {
+	if ( 'post_type' !== $item->type ) { return $atts; }
+	$path = array_search( (int) $item->object_id, array_map( 'intval', (array) get_option( 's24_policy_pages', array() ) ), true );
+	if ( false !== $path && 'en' === s24_policy_pages()[ $path ][2] ) {
+		$atts['lang'] = $atts['hreflang'] = 'en';
+	}
+	return $atts;
+}, 10, 2 );
+
+/* Mục "Chính sách" trong menu đầu trang mặc định (khi chưa gán menu cho vị trí "Menu chính") */
+function s24_policy_nav_fallback() {
+	echo '<li class="menu-item-has-children"><a href="#">Chính sách</a><ul class="sub-menu">';
+	foreach ( s24_policy_nav_pages() as $path => $label ) {
+		s24_policy_link( $path, $label, 'en' === $path ? 'en' : '' );
+	}
+	echo '</ul></li>';
+}
+
 /* Menu chân trang mặc định khi chưa gán menu cho vị trí "Chân trang – Chính sách":
    trên trang tiếng Anh hiện bộ link tiếng Anh, còn lại hiện bộ tiếng Việt kèm link "English" */
 function s24_policy_menu_fallback() {
