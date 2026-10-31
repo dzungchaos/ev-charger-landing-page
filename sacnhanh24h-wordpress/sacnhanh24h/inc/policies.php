@@ -67,6 +67,29 @@ function s24_seed_policy_pages() {
 	}
 }
 
+/* Chủ dự án cho đăng trước khi pháp chế duyệt (31/10/2026): trang đã tạo từ bản có ô "BẢN NHÁP"
+   được gỡ ô đó một lần. Chỉ gỡ đúng phần theme đã chèn, phần đã sửa trong wp-admin giữ nguyên. */
+add_action( 'admin_init', function () {
+	if ( get_option( 's24_policy_undrafted' ) || ! current_user_can( 'publish_pages' ) ) { return; }
+	foreach ( (array) get_option( 's24_policy_pages', array() ) as $id ) {
+		$post = get_post( (int) $id );
+		if ( ! $post ) { continue; }
+		$html = s24_policy_undraft( $post->post_content );
+		if ( $html !== $post->post_content ) {
+			wp_update_post( wp_slash( array( 'ID' => $post->ID, 'post_content' => $html ) ) );
+		}
+	}
+	update_option( 's24_policy_undrafted', 1 );
+}, 20 );
+
+function s24_policy_undraft( $html ) {
+	// Bản Việt: bỏ cả ô
+	$html = preg_replace( '#<!-- wp:paragraph \{"className":"s24-note"\} -->\s*<p class="s24-note"><strong>BẢN NHÁP – CHƯA CÓ HIỆU LỰC\.</strong>.*?</p>\s*<!-- /wp:paragraph -->\s*#su', '', $html );
+	// Bản Anh: giữ câu "bản tiếng Việt được ưu tiên áp dụng" thành đoạn thường
+	$html = preg_replace( '#<!-- wp:paragraph \{"className":"s24-note"\} -->(\s*)<p class="s24-note"><strong>DRAFT – NOT YET IN EFFECT\.</strong> This document is pending review by the legal team of [^.]*\. #su', '<!-- wp:paragraph -->$1<p>', $html );
+	return str_replace( array( 'Phiên bản 1.1 (bản nháp)', 'Version 1.1 (draft)' ), array( 'Phiên bản 1.1', 'Version 1.1' ), $html );
+}
+
 /* Khoá đường dẫn (slug) và trang cha: đổi đi sẽ làm hỏng URL đã khai với các nền tảng */
 add_filter( 'wp_insert_post_data', function ( $data, $postarr ) {
 	if ( 'page' !== $data['post_type'] || empty( $postarr['ID'] ) || 'trash' === $data['post_status'] ) { return $data; }
