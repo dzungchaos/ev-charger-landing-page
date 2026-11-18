@@ -38,6 +38,9 @@ SỬA GÌ Ở ĐÂU
   Tin tức                                            Bài viết
   4 trang chính sách (điều khoản, quyền riêng tư,    Trang → Tất cả trang
     xoá dữ liệu, hoàn tiền)
+  Chủ sở hữu website, MST, địa chỉ ở chân trang;     Giao diện → Tùy biến → "Trang chủ Sacnhanh24h" →
+    logo "Đã thông báo Bộ Công Thương"                 Chân trang & mạng xã hội (logo chỉ hiện khi có link
+                                                     do online.gov.vn cấp)
   Link chính sách ở chân trang                       Giao diện → Menu → vị trí "Chân trang – Chính sách"
                                                      (chưa gán menu thì tự hiện đủ 4 trang, đúng ngôn ngữ
                                                      của trang đang xem, kèm link chuyển Việt/Anh)

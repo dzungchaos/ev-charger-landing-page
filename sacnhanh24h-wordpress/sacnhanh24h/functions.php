@@ -4,7 +4,7 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
-define( 'S24_VER', '1.2.0' );
+define( 'S24_VER', '1.2.1' );
 define( 'S24_DIR', get_template_directory() );
 define( 'S24_URI', get_template_directory_uri() );
 

@@ -126,6 +126,14 @@ function s24_defaults() {
 		'zalo'         => '',
 		'youtube'      => '',
 		'copyright'    => 'Sacnhanh24h. Bảo lưu mọi quyền.',
+
+		// Chủ sở hữu website (theo giấy ĐKKD), hiện ở chân trang
+		'owner_name'    => 'Công ty Cổ phần Trạm Sạc Nhanh 24H',
+		'owner_tax'     => '0111639874',
+		'owner_reg'     => 'đăng ký lần đầu ngày 24/09/2026 tại Phòng ĐKKD và TCDN – Sở Tài chính TP Hà Nội',
+		'owner_address' => 'Tầng 5, Tòa IC, số 82 phố Duy Tân, phường Cầu Giấy, thành phố Hà Nội',
+		'bct_link'      => '',
+		'bct_logo'      => '',
 	);
 	return $d;
 }

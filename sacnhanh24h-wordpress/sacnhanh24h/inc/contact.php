@@ -4,6 +4,14 @@
  */
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
+/* Email trong Tùy biến từng bị gõ thiếu chữ "h" (sacnhanh24@): sai chỗ hiện ở trang chủ, chân trang
+   và cả nơi nhận yêu cầu tư vấn. Sửa một lần khi quản trị viên vào wp-admin; email khác giữ nguyên. */
+add_action( 'admin_init', function () {
+	if ( 'sacnhanh24@gmail.com' === strtolower( trim( (string) get_theme_mod( 'email' ) ) ) && current_user_can( 'edit_theme_options' ) ) {
+		set_theme_mod( 'email', 'sacnhanh24h@gmail.com' );
+	}
+} );
+
 add_action( 'wp_ajax_s24_contact', 's24_handle_contact' );
 add_action( 'wp_ajax_nopriv_s24_contact', 's24_handle_contact' );
 

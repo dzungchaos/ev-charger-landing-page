@@ -180,6 +180,12 @@ add_action( 'customize_register', function ( WP_Customize_Manager $wp ) {
 	$add( 's24_footer', 'zalo', 'Link Zalo', 'url' );
 	$add( 's24_footer', 'youtube', 'Link YouTube', 'url' );
 	$add( 's24_footer', 'copyright', 'Dòng bản quyền (sau © năm)' );
+	$add( 's24_footer', 'owner_name', 'Chủ sở hữu website', 'text', 'Ghi đúng theo giấy ĐKKD. Để trống sẽ ẩn cả khối thông tin chủ sở hữu.' );
+	$add( 's24_footer', 'owner_tax', 'Mã số thuế' );
+	$add( 's24_footer', 'owner_reg', 'Nơi và ngày đăng ký', 'textarea' );
+	$add( 's24_footer', 'owner_address', 'Địa chỉ chủ sở hữu', 'textarea' );
+	$add( 's24_footer', 'bct_link', 'Link "Đã thông báo Bộ Công Thương"', 'url', 'Link do online.gov.vn cấp sau khi thông báo website. Để trống sẽ ẩn logo.' );
+	$add( 's24_footer', 'bct_logo', 'Logo "Đã thông báo Bộ Công Thương"', 'image' );
 } );
 
 function s24_sanitize_bool( $v ) { return (bool) $v; }
