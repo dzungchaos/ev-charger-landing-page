@@ -47,6 +47,20 @@
         </ul>
       </div>
     </div>
+    <?php if ( s24_mod( 'owner_name' ) ) : ?>
+    <div class="f-owner">
+      <p>
+        Chủ sở hữu website: <strong><?php echo esc_html( s24_mod( 'owner_name' ) ); ?></strong>
+        <?php if ( s24_mod( 'owner_tax' ) ) : ?><br>Mã số thuế: <?php echo esc_html( s24_mod( 'owner_tax' ) ); ?><?php echo s24_mod( 'owner_reg' ) ? ', ' . esc_html( s24_mod( 'owner_reg' ) ) : ''; ?><?php endif; ?>
+        <?php if ( s24_mod( 'owner_address' ) ) : ?><br>Địa chỉ: <?php echo esc_html( s24_mod( 'owner_address' ) ); ?><?php endif; ?>
+      </p>
+      <?php if ( s24_mod( 'bct_link' ) ) : /* chỗ gắn logo "Đã thông báo Bộ Công Thương" */ ?>
+        <a class="f-bct" href="<?php echo esc_url( s24_mod( 'bct_link' ) ); ?>" target="_blank" rel="noopener">
+          <?php if ( s24_mod( 'bct_logo' ) ) : ?><img src="<?php echo esc_url( s24_mod( 'bct_logo' ) ); ?>" alt="Đã thông báo Bộ Công Thương"><?php else : ?>Đã thông báo Bộ Công Thương<?php endif; ?>
+        </a>
+      <?php endif; ?>
+    </div>
+    <?php endif; ?>
     <nav class="f-policy" aria-label="Chính sách">
       <?php
       wp_nav_menu( array(
