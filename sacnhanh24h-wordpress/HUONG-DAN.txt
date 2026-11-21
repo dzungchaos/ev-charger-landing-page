@@ -36,23 +36,37 @@ SỬA GÌ Ở ĐÂU
     menu con, bấm vào không chuyển trang. Chưa gán menu ở vị trí "Menu chính" thì menu mặc định
     đã có sẵn mục này.
   Tin tức                                            Bài viết
-  4 trang chính sách (điều khoản, quyền riêng tư,    Trang → Tất cả trang
-    xoá dữ liệu, hoàn tiền)
+  10 trang chính sách tiếng Việt, 5 trang tiếng Anh  Trang → Tất cả trang
   Chủ sở hữu website, MST, địa chỉ ở chân trang;     Giao diện → Tùy biến → "Trang chủ Sacnhanh24h" →
     logo "Đã thông báo Bộ Công Thương"                 Chân trang & mạng xã hội (logo chỉ hiện khi có link
                                                      do online.gov.vn cấp)
   Link chính sách ở chân trang                       Giao diện → Menu → vị trí "Chân trang – Chính sách"
-                                                     (chưa gán menu thì tự hiện đủ 4 trang, đúng ngôn ngữ
+                                                     (chưa gán menu thì tự hiện đủ các trang, đúng ngôn ngữ
                                                      của trang đang xem, kèm link chuyển Việt/Anh)
 
 TRANG CHÍNH SÁCH
-  Đường dẫn cố định (đã/sẽ khai ở App Store, Google Play, Facebook Developers):
-    Tiếng Việt                 Tiếng Anh
-    /dieu-khoan-su-dung/       /en/terms-of-use/       Điều khoản sử dụng
-    /chinh-sach-bao-mat/       /en/privacy-policy/     Chính sách quyền riêng tư và bảo mật
-    /xoa-du-lieu/              /en/account-deletion/   Hướng dẫn xoá tài khoản và dữ liệu
-    /chinh-sach-hoan-tien/     /en/refund-policy/      Chính sách hoàn tiền và khiếu nại
-                               /en/                    Mục lục bản tiếng Anh (trang cha của 4 trang trên)
+  Nội dung theo bộ hồ sơ đăng ký Bộ Công Thương: Quyết định 01/2026/QĐ-TSN24H ngày 20/11/2026,
+  phiên bản 1.1, hiệu lực 20/11/2026. Đường dẫn cố định (đã/sẽ khai ở App Store, Google Play,
+  Facebook Developers và online.gov.vn); cột "Hồ sơ" là mã văn bản trong Quyết định:
+    Tiếng Việt                    Tiếng Anh               Hồ sơ
+    /dieu-khoan-su-dung/          /en/terms-of-use/       DK-CHUNG-08  Điều khoản sử dụng chung
+    /chinh-sach-bao-mat/          /en/privacy-policy/     CS-BM-01     Bảo vệ dữ liệu cá nhân
+    /xoa-du-lieu/                 /en/account-deletion/   (mục 6 CS-BM-01) Xoá tài khoản và dữ liệu
+    /chinh-sach-hoan-tien/        /en/refund-policy/      CS-HT-06     Cung cấp dịch vụ, chấm dứt, hoàn tiền
+    /giai-quyet-khieu-nai/                                QT-KN-02     Tiếp nhận và giải quyết khiếu nại
+    /chinh-sach-gia/                                      CS-GIA-03    Chính sách giá
+    /chinh-sach-thanh-toan/                               CS-TT-04     Thanh toán trực tuyến
+    /dieu-kien-cung-cap-dich-vu/                          DK-CCDV-05   Điều kiện và hạn chế
+    /ho-tro-truc-tuyen/                                   QT-HTTT-07   Hỗ trợ trực tuyến và SLA
+    /cau-hoi-thuong-gap/                                  (tài liệu 07 nhắc tới FAQ trên website)
+                                  /en/                    Mục lục bản tiếng Anh (trang cha của 4 trang trên)
+  - 6 trang chỉ có tiếng Việt chép đúng chữ trong hồ sơ. 4 trang cũ giữ nội dung chi tiết, chỗ nào lệch
+    hồ sơ thì đã sửa theo hồ sơ (tên App, hotline 24/7, độ tuổi, phương thức thanh toán, số dư tối
+    thiểu, nợ cước, hoàn tiền về nguồn, bên nhận dữ liệu, thời hạn xoá...). Trang FAQ tóm tắt từ hồ sơ.
+  - Theme 1.3.0 tự tạo 6 trang mới và thay nội dung 9 trang cũ MỘT LẦN khi quản trị viên vào wp-admin.
+    Trang nào đã bị sửa trong wp-admin thì không bị ghi đè, wp-admin hiện thông báo vàng nêu tên trang;
+    khi đó mở trang, chép nội dung từ file tương ứng trong sacnhanh24h/inc/policies/ (trình soạn
+    thảo → ⋮ → Trình soạn thảo mã), bấm "Cập nhật".
   - Sửa tiêu đề, nội dung thoải mái. Đường dẫn và trang cha bị theme khoá: đổi sẽ tự quay về.
   - KHÔNG chuyển các trang này sang Bản nháp/Riêng tư và không xoá: kho ứng dụng sẽ báo link hỏng.
     Lỡ chuyển vào Thùng rác: Trang → Thùng rác → Khôi phục, rồi mở trang bấm "Đăng" lại.
@@ -64,9 +78,15 @@ TRANG CHÍNH SÁCH
        curl -s -o /dev/null -w '%{http_code}' https://sacnhanh24h.vn/xoa-du-lieu/
     Máy chủ không được đặt mật khẩu hay chặn IP trước các trang này; Cài đặt → Đọc: KHÔNG bật
     "Ngăn chặn các công cụ tìm kiếm". Kho ứng dụng và Facebook phải đọc được trang.
-  - Chủ dự án cho đăng trước khi pháp chế duyệt (31/10/2026), nên các trang không còn ô "BẢN NHÁP".
-    Trang đã tạo trên site từ bản cũ có ô đó: theme tự gỡ một lần khi quản trị viên vào wp-admin.
-    Pháp chế vẫn cần rà các giá trị trong "SỔ GIÁ TRỊ TẠM" bên dưới; sửa gì thì làm như mục dưới.
+  - Hồ sơ còn ghi một số việc hệ thống CHƯA làm được, phải làm xong hoặc sửa hồ sơ trước khi App
+    phát hành: thanh toán thẻ Visa/Mastercard/JCB, VietQR/Napas 247, liên kết trừ tiền tự động,
+    số dư tối thiểu 100.000đ (App đang 50.000đ), ghi nợ cước, hoàn tiền về tài khoản/thẻ/ví gốc,
+    xuất hoá đơn từng phiên, mã PIN thanh toán, xác thực sinh trắc học, tên mục hỗ trợ trong App
+    ("Hỗ trợ & Báo lỗi trụ sạc" ở QT-KN-02, "Trợ giúp & Báo lỗi" ở QT-HTTT-07), đường vào xoá tài
+    khoản "Cài đặt tài khoản → Xóa tài khoản cá nhân", hotline trực 24/7 kể cả Lễ Tết.
+  - Hồ sơ CS-BM-01 dẫn Nghị định 13/2023 (đã được thay bằng Luật Bảo vệ dữ liệu cá nhân 91/2025 và
+    Nghị định 356/2025 từ 01/01/2026). Trang bảo mật giữ căn cứ mới; pháp chế nên sửa hồ sơ.
+    Hồ sơ nêu AWS: nếu máy chủ đặt ở nước ngoài thì phải lập hồ sơ chuyển dữ liệu ra nước ngoài.
   - Bản tiếng Việt là bản gốc, bản tiếng Anh ghi rõ "bản tiếng Việt được ưu tiên áp dụng".
     Sửa bản tiếng Việt thì sửa luôn bản tiếng Anh tương ứng cho khớp.
   - Mỗi lần đổi nội dung điều khoản/chính sách: tăng số phiên bản ở đầu trang và báo đội phần mềm
@@ -84,14 +104,15 @@ TRANG CHÍNH SÁCH
        "Quyền riêng tư" của màn 07.
     2. Vị trí nút "Yêu cầu bản sao dữ liệu của tôi": Tài khoản → Quyền riêng tư
        (/chinh-sach-bao-mat/, /en/privacy-policy/). Theo thiết kế BA màn 07.
-    3. Tên App "Sạc Nhanh 24H" phải trùng đúng tên hiển thị trên App Store và Google Play
-       (Google Play bắt buộc trang xoá dữ liệu ghi đúng tên App trên kho). Phiếu đề nghị gửi cổng
-       thanh toán ngày 13/09/2026 ghi tên App là "Sacnhanh24h" – cần thống nhất một tên.
+    3. Tên App "Trạm Sạc Nhanh 24H" (theo hồ sơ Bộ Công Thương) phải trùng đúng tên hiển thị trên
+       App Store và Google Play (Google Play bắt buộc trang xoá dữ liệu ghi đúng tên App trên kho).
+       Phiếu đề nghị gửi cổng thanh toán ngày 13/09/2026 ghi "Sacnhanh24h" – cần sửa cho khớp.
 
   b) Thông tin công ty tự đề xuất
-    4. Ngày có hiệu lực 01/11/2026 (chủ dự án chọn, đăng trước khi pháp chế duyệt). Pháp chế sửa
-       gì sau ngày này thì ra phiên bản mới, ghi ngày hiệu lực mới và báo đội phần mềm.
-    5. Giờ hotline: 8:00 – 17:30, thứ Hai đến thứ Sáu, trừ ngày nghỉ lễ (xoá dữ liệu, hoàn tiền).
+    4. Phiên bản 1.1, ngày có hiệu lực 20/11/2026 theo Quyết định 01/2026/QĐ-TSN24H (bản đăng ngày
+       01/11/2026 cũng ghi 1.1 nhưng nội dung khác: đội App cần coi đây là thay đổi và hỏi khách
+       đồng ý lại). Sửa gì sau ngày này thì ra phiên bản mới, ghi ngày hiệu lực mới.
+    5. Giờ hotline: 24/7, kể cả Lễ, Tết (theo hồ sơ Bộ Công Thương, 22/11/2026).
        Công ty phải bố trí người trực đúng giờ này.
     6. Đầu mối bảo vệ dữ liệu cá nhân: Bộ phận Chăm sóc khách hàng, email + hotline chung
        (bảo mật, xoá dữ liệu). Luật 91/2025 yêu cầu chỉ định bộ phận/nhân sự bảo vệ dữ liệu –
