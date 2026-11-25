@@ -48,6 +48,7 @@ $m = 's24_mod';
           </div>
         <?php endfor; ?>
       </div>
+      <?php if ( $m( 'price_idle' ) ) : ?><p class="price-idle"><?php echo esc_html( $m( 'price_idle' ) ); ?> <a href="<?php echo esc_url( home_url( '/chinh-sach-gia/' ) ); ?>">Chính sách giá</a></p><?php endif; ?>
       <?php if ( $m( 'price_note' ) ) : ?><div class="note"><?php echo esc_html( $m( 'price_note' ) ); ?></div><?php endif; ?>
     </div>
   </div>

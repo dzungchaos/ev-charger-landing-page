@@ -99,6 +99,7 @@ add_action( 'customize_register', function ( WP_Customize_Manager $wp ) {
 		$add( 's24_pricing', "tier{$i}_time", "$lbl – giờ áp dụng" );
 		$add( 's24_pricing', "tier{$i}_price", "$lbl – giá" );
 	}
+	$add( 's24_pricing', 'price_idle', 'Phí chiếm dụng và phí khác', 'textarea', 'Phải khớp Chính sách giá đã đăng ký với Bộ Công Thương. Để trống sẽ ẩn.' );
 	$add( 's24_pricing', 'price_note', 'Ghi chú dưới bảng giá' );
 
 	/* Trạm sạc */
