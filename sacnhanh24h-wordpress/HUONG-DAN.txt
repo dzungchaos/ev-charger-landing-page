@@ -48,18 +48,26 @@ TRANG CHÍNH SÁCH
   Nội dung theo bộ hồ sơ đăng ký Bộ Công Thương: Quyết định 01/2026/QĐ-TSN24H ngày 20/11/2026,
   phiên bản 1.1, hiệu lực 20/11/2026. Đường dẫn cố định (đã/sẽ khai ở App Store, Google Play,
   Facebook Developers và online.gov.vn); cột "Hồ sơ" là mã văn bản trong Quyết định:
-    Tiếng Việt                    Tiếng Anh               Hồ sơ
-    /dieu-khoan-su-dung/          /en/terms-of-use/       DK-CHUNG-08  Điều khoản sử dụng chung
-    /chinh-sach-bao-mat/          /en/privacy-policy/     CS-BM-01     Bảo vệ dữ liệu cá nhân
-    /xoa-du-lieu/                 /en/account-deletion/   (mục 6 CS-BM-01) Xoá tài khoản và dữ liệu
-    /chinh-sach-hoan-tien/        /en/refund-policy/      CS-HT-06     Cung cấp dịch vụ, chấm dứt, hoàn tiền
-    /giai-quyet-khieu-nai/                                QT-KN-02     Tiếp nhận và giải quyết khiếu nại
-    /chinh-sach-gia/                                      CS-GIA-03    Chính sách giá
-    /chinh-sach-thanh-toan/                               CS-TT-04     Thanh toán trực tuyến
-    /dieu-kien-cung-cap-dich-vu/                          DK-CCDV-05   Điều kiện và hạn chế
-    /ho-tro-truc-tuyen/                                   QT-HTTT-07   Hỗ trợ trực tuyến và SLA
-    /cau-hoi-thuong-gap/                                  (tài liệu 07 nhắc tới FAQ trên website)
-                                  /en/                    Mục lục bản tiếng Anh (trang cha của 4 trang trên)
+    Tất cả nằm dưới /chinh-sach/ (từ theme 1.4.0, theo yêu cầu chủ dự án 25/11/2026).
+    /chinh-sach/                        Mục lục 8 văn bản theo Quyết định
+    Tiếng Việt: /chinh-sach/…           Tiếng Anh: /chinh-sach/en/…     Hồ sơ
+    dieu-khoan-su-dung/                 terms-of-use/                   DK-CHUNG-08  Điều khoản sử dụng chung
+    chinh-sach-bao-mat/                 privacy-policy/                 CS-BM-01     Bảo vệ dữ liệu cá nhân
+    xoa-du-lieu/                        account-deletion/               (mục 6 CS-BM-01) Xoá tài khoản và dữ liệu
+    chinh-sach-hoan-tien/               refund-policy/                  CS-HT-06     Cung cấp dịch vụ, chấm dứt, hoàn tiền
+    giai-quyet-khieu-nai/                                               QT-KN-02     Tiếp nhận và giải quyết khiếu nại
+    chinh-sach-gia/                                                     CS-GIA-03    Chính sách giá
+    chinh-sach-thanh-toan/                                              CS-TT-04     Thanh toán trực tuyến
+    dieu-kien-cung-cap-dich-vu/                                         DK-CCDV-05   Điều kiện và hạn chế
+    ho-tro-truc-tuyen/                                                  QT-HTTT-07   Hỗ trợ trực tuyến và SLA
+    cau-hoi-thuong-gap/                                                 (tài liệu 07 nhắc tới FAQ trên website)
+                                        (trống) = /chinh-sach/en/       Mục lục bản tiếng Anh
+    Ví dụ: https://sacnhanh24h.vn/chinh-sach/xoa-du-lieu/, https://sacnhanh24h.vn/chinh-sach/en/terms-of-use/
+  - URL cũ (không có /chinh-sach/, ví dụ /xoa-du-lieu/, /en/terms-of-use/) tự chuyển hướng 301 sang URL mới,
+    nhưng phải sửa sang URL mới ở: hồ sơ online.gov.vn, link Điều khoản/Bảo mật/Xoá tài khoản trong App,
+    ô Privacy Policy URL và Account deletion URL trên App Store và Google Play, Facebook Developers.
+  - Theme 1.4.0 chuyển trang đang có vào dưới /chinh-sach/ MỘT LẦN khi quản trị viên vào wp-admin (giữ nguyên
+    nội dung đã sửa, link giữa các trang đổi sang URL mới). Trước lần đó URL cũ vẫn mở bình thường.
   - 6 trang chỉ có tiếng Việt chép đúng chữ trong hồ sơ. 4 trang cũ giữ nội dung chi tiết, chỗ nào lệch
     hồ sơ thì đã sửa theo hồ sơ (tên App, hotline 24/7, độ tuổi, phương thức thanh toán, số dư tối
     thiểu, nợ cước, hoàn tiền về nguồn, bên nhận dữ liệu, thời hạn xoá...). Trang FAQ tóm tắt từ hồ sơ.
@@ -75,7 +83,7 @@ TRANG CHÍNH SÁCH
                wp eval 's24_seed_policy_pages();'
       Máy chủ riêng: chạy lại lệnh ở bước 3 mục MÁY CHỦ RIÊNG.
   - Sau khi lên host, kiểm từng đường dẫn trả 200 khi CHƯA đăng nhập, ví dụ:
-       curl -s -o /dev/null -w '%{http_code}' https://sacnhanh24h.vn/xoa-du-lieu/
+       curl -s -o /dev/null -w '%{http_code}' https://sacnhanh24h.vn/chinh-sach/xoa-du-lieu/
     Máy chủ không được đặt mật khẩu hay chặn IP trước các trang này; Cài đặt → Đọc: KHÔNG bật
     "Ngăn chặn các công cụ tìm kiếm". Kho ứng dụng và Facebook phải đọc được trang.
   - Hồ sơ còn ghi một số việc hệ thống CHƯA làm được, phải làm xong hoặc sửa hồ sơ trước khi App
@@ -100,10 +108,10 @@ TRANG CHÍNH SÁCH
 
   a) Đối chiếu với App bản phát hành
     1. Đường vào nút xoá tài khoản: Tài khoản → Quyền riêng tư → Xoá tài khoản
-       (/xoa-du-lieu/, /en/account-deletion/). Đặt theo thiết kế BA: màn 12 vào từ mục
+       (/chinh-sach/xoa-du-lieu/, /chinh-sach/en/account-deletion/). Đặt theo thiết kế BA: màn 12 vào từ mục
        "Quyền riêng tư" của màn 07.
     2. Vị trí nút "Yêu cầu bản sao dữ liệu của tôi": Tài khoản → Quyền riêng tư
-       (/chinh-sach-bao-mat/, /en/privacy-policy/). Theo thiết kế BA màn 07.
+       (/chinh-sach/chinh-sach-bao-mat/, /chinh-sach/en/privacy-policy/). Theo thiết kế BA màn 07.
     3. Tên App "Trạm Sạc Nhanh 24H" (theo hồ sơ Bộ Công Thương) phải trùng đúng tên hiển thị trên
        App Store và Google Play (Google Play bắt buộc trang xoá dữ liệu ghi đúng tên App trên kho).
        Phiếu đề nghị gửi cổng thanh toán ngày 13/09/2026 ghi "Sacnhanh24h" – cần sửa cho khớp.
