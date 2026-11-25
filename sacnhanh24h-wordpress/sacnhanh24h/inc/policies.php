@@ -9,45 +9,123 @@
 if ( ! defined( 'ABSPATH' ) ) { exit; }
 
 /* Tăng số này khi thêm trang, để site đã cài tự tạo trang còn thiếu */
-define( 'S24_POLICY_VER', 3 );
+define( 'S24_POLICY_VER', 4 );
 
 /** đường dẫn => array( tiêu đề trang, chữ ở chân trang, ngôn ngữ, đường dẫn bản ngôn ngữ kia )
  *  Tên trang theo Quyết định 01/2026/QĐ-TSN24H (bộ hồ sơ đăng ký với Bộ Công Thương) */
 function s24_policy_pages() {
 	return array(
-		'dieu-khoan-su-dung'         => array( 'Điều khoản sử dụng chung và giới hạn trách nhiệm', 'Điều khoản sử dụng', 'vi', 'en/terms-of-use' ),
-		'chinh-sach-bao-mat'         => array( 'Chính sách bảo vệ dữ liệu cá nhân và quyền riêng tư', 'Bảo vệ dữ liệu cá nhân', 'vi', 'en/privacy-policy' ),
-		'xoa-du-lieu'                => array( 'Hướng dẫn xoá tài khoản và dữ liệu', 'Xoá tài khoản và dữ liệu', 'vi', 'en/account-deletion' ),
-		'chinh-sach-hoan-tien'       => array( 'Phương thức cung cấp dịch vụ, chính sách chấm dứt dịch vụ và hoàn tiền', 'Cung cấp dịch vụ và hoàn tiền', 'vi', 'en/refund-policy' ),
-		'giai-quyet-khieu-nai'       => array( 'Phương thức tiếp nhận và giải quyết phản ánh, yêu cầu, khiếu nại', 'Giải quyết khiếu nại', 'vi', '' ),
-		'chinh-sach-gia'             => array( 'Chính sách giá dịch vụ sạc xe điện', 'Chính sách giá', 'vi', '' ),
-		'chinh-sach-thanh-toan'      => array( 'Chính sách về thanh toán trực tuyến', 'Thanh toán', 'vi', '' ),
-		'dieu-kien-cung-cap-dich-vu' => array( 'Các điều kiện và hạn chế trong việc cung cấp dịch vụ', 'Điều kiện cung cấp dịch vụ', 'vi', '' ),
-		'ho-tro-truc-tuyen'          => array( 'Hình thức hỗ trợ trực tuyến và cam kết chất lượng dịch vụ', 'Hỗ trợ trực tuyến', 'vi', '' ),
-		'cau-hoi-thuong-gap'         => array( 'Câu hỏi thường gặp', 'Câu hỏi thường gặp', 'vi', '' ),
-		// Trang cha /en/ phải đứng trước các trang con
-		'en'                         => array( 'Policies', 'English', 'en', '' ),
-		'en/terms-of-use'            => array( 'Terms of Use', 'Terms of Use', 'en', 'dieu-khoan-su-dung' ),
-		'en/privacy-policy'          => array( 'Privacy and Security Policy', 'Privacy and Security', 'en', 'chinh-sach-bao-mat' ),
-		'en/account-deletion'        => array( 'Account and Data Deletion', 'Account and Data Deletion', 'en', 'xoa-du-lieu' ),
-		'en/refund-policy'           => array( 'Service Delivery, Termination and Refund Policy', 'Service and Refunds', 'en', 'chinh-sach-hoan-tien' ),
+		// Trang cha phải đứng trước các trang con
+		'chinh-sach'                            => array( 'Chính sách', 'Chính sách', 'vi', '' ),
+		'chinh-sach/dieu-khoan-su-dung'         => array( 'Điều khoản sử dụng chung và giới hạn trách nhiệm', 'Điều khoản sử dụng', 'vi', 'chinh-sach/en/terms-of-use' ),
+		'chinh-sach/chinh-sach-bao-mat'         => array( 'Chính sách bảo vệ dữ liệu cá nhân và quyền riêng tư', 'Bảo vệ dữ liệu cá nhân', 'vi', 'chinh-sach/en/privacy-policy' ),
+		'chinh-sach/xoa-du-lieu'                => array( 'Hướng dẫn xoá tài khoản và dữ liệu', 'Xoá tài khoản và dữ liệu', 'vi', 'chinh-sach/en/account-deletion' ),
+		'chinh-sach/chinh-sach-hoan-tien'       => array( 'Phương thức cung cấp dịch vụ, chính sách chấm dứt dịch vụ và hoàn tiền', 'Cung cấp dịch vụ và hoàn tiền', 'vi', 'chinh-sach/en/refund-policy' ),
+		'chinh-sach/giai-quyet-khieu-nai'       => array( 'Phương thức tiếp nhận và giải quyết phản ánh, yêu cầu, khiếu nại', 'Giải quyết khiếu nại', 'vi', '' ),
+		'chinh-sach/chinh-sach-gia'             => array( 'Chính sách giá dịch vụ sạc xe điện', 'Chính sách giá', 'vi', '' ),
+		'chinh-sach/chinh-sach-thanh-toan'      => array( 'Chính sách về thanh toán trực tuyến', 'Thanh toán', 'vi', '' ),
+		'chinh-sach/dieu-kien-cung-cap-dich-vu' => array( 'Các điều kiện và hạn chế trong việc cung cấp dịch vụ', 'Điều kiện cung cấp dịch vụ', 'vi', '' ),
+		'chinh-sach/ho-tro-truc-tuyen'          => array( 'Hình thức hỗ trợ trực tuyến và cam kết chất lượng dịch vụ', 'Hỗ trợ trực tuyến', 'vi', '' ),
+		'chinh-sach/cau-hoi-thuong-gap'         => array( 'Câu hỏi thường gặp', 'Câu hỏi thường gặp', 'vi', '' ),
+		'chinh-sach/en'                         => array( 'Policies', 'English', 'en', '' ),
+		'chinh-sach/en/terms-of-use'            => array( 'Terms of Use', 'Terms of Use', 'en', 'chinh-sach/dieu-khoan-su-dung' ),
+		'chinh-sach/en/privacy-policy'          => array( 'Privacy and Security Policy', 'Privacy and Security', 'en', 'chinh-sach/chinh-sach-bao-mat' ),
+		'chinh-sach/en/account-deletion'        => array( 'Account and Data Deletion', 'Account and Data Deletion', 'en', 'chinh-sach/xoa-du-lieu' ),
+		'chinh-sach/en/refund-policy'           => array( 'Service Delivery, Termination and Refund Policy', 'Service and Refunds', 'en', 'chinh-sach/chinh-sach-hoan-tien' ),
 	);
 }
+
+/** File nội dung gốc của trang: inc/policies/<đường dẫn bỏ "chinh-sach/", "/" đổi thành "-">.html */
+function s24_policy_file( $path ) {
+	$rel = preg_replace( '#^chinh-sach/?#', '', $path );
+	return S24_DIR . '/inc/policies/' . ( '' === $rel ? 'chinh-sach' : str_replace( '/', '-', $rel ) ) . '.html';
+}
+
+/** Link tới một trang chính sách theo đường dẫn trong s24_policy_pages() */
+function s24_policy_url( $path ) {
+	$ids = (array) get_option( 's24_policy_pages', array() );
+	$url = empty( $ids[ $path ] ) ? '' : get_permalink( (int) $ids[ $path ] );
+	return $url ?: home_url( '/' . $path . '/' );
+}
+
+/* Trước 1.4.0 các trang nằm ngay dưới gốc (/dieu-khoan-su-dung/, /en/terms-of-use/…).
+   Chủ dự án đổi sang /chinh-sach/<loại>/. URL cũ đã khai ở App, kho ứng dụng, hồ sơ Bộ Công Thương
+   nên luôn chuyển hướng 301 sang URL mới. Đường dẫn cũ = đường dẫn mới bỏ "chinh-sach/". */
+function s24_policy_old_paths() {
+	$out = array();
+	foreach ( array_keys( s24_policy_pages() ) as $path ) {
+		if ( 'chinh-sach' !== $path ) { $out[ substr( $path, strlen( 'chinh-sach/' ) ) ] = $path; }
+	}
+	return $out; // đường dẫn cũ => đường dẫn mới
+}
+
+/* Chuyển trang đang có vào dưới trang cha /chinh-sach/ MỘT LẦN, giữ nguyên nội dung (có thể đã sửa tay).
+   Chạy trước bước tạo trang còn thiếu (ưu tiên 10), để không tạo trùng trang ở đường dẫn mới. */
+add_action( 'admin_init', function () {
+	if ( get_option( 's24_policy_moved' ) || ! current_user_can( 'publish_pages' ) ) { return; }
+	$old = array_map( 'intval', (array) get_option( 's24_policy_pages', array() ) );
+	if ( ! $old || isset( $old['chinh-sach'] ) ) { update_option( 's24_policy_moved', 1 ); return; } // site mới
+	$parent = get_page_by_path( 'chinh-sach' );
+	$pid    = $parent ? $parent->ID : wp_insert_post( array(
+		'post_type'      => 'page',
+		'post_status'    => 'publish',
+		'post_name'      => 'chinh-sach',
+		'post_title'     => 'Chính sách',
+		'post_content'   => (string) file_get_contents( s24_policy_file( 'chinh-sach' ) ),
+		'comment_status' => 'closed',
+		'ping_status'    => 'closed',
+	) );
+	if ( ! $pid || is_wp_error( $pid ) ) { return; }
+	$ids = array( 'chinh-sach' => (int) $pid );
+	foreach ( s24_policy_old_paths() as $from => $to ) {
+		if ( ! empty( $old[ $from ] ) ) { $ids[ $to ] = $old[ $from ]; }
+	}
+	// Ghi đường dẫn mới trước: bộ lọc khoá đường dẫn bên dưới đặt trang cha theo option này
+	update_option( 's24_policy_pages', $ids );
+	foreach ( $ids as $path => $id ) {
+		if ( 'chinh-sach' === dirname( $path ) ) { wp_update_post( array( 'ID' => $id, 'post_parent' => $pid ) ); }
+	}
+	// Link giữa các trang trong nội dung trỏ thẳng URL mới (URL cũ vẫn chuyển hướng được)
+	foreach ( $ids as $id ) {
+		$post = get_post( $id );
+		$html = $post ? preg_replace_callback( '#href="/([a-z0-9/-]+?)/(["\#])#', function ( $m ) {
+			$paths = s24_policy_old_paths();
+			return isset( $paths[ $m[1] ] ) ? 'href="/' . $paths[ $m[1] ] . '/' . $m[2] : $m[0];
+		}, $post->post_content ) : '';
+		if ( $post && $html !== $post->post_content ) { wp_update_post( wp_slash( array( 'ID' => $id, 'post_content' => $html ) ) ); }
+	}
+	update_option( 's24_policy_moved', 1 );
+}, 5 );
+
+/* URL cũ → URL mới, 301 */
+add_action( 'template_redirect', function () {
+	$req  = trim( (string) wp_parse_url( $_SERVER['REQUEST_URI'] ?? '', PHP_URL_PATH ), '/' );
+	$base = trim( (string) wp_parse_url( home_url(), PHP_URL_PATH ), '/' );
+	if ( $base && 0 === strpos( $req, $base . '/' ) ) { $req = substr( $req, strlen( $base ) + 1 ); }
+	$paths = s24_policy_old_paths();
+	$ids   = (array) get_option( 's24_policy_pages', array() );
+	// Chỉ chuyển khi trang đã nằm ở đường dẫn mới (sau khi quản trị viên vào wp-admin lần đầu)
+	if ( isset( $paths[ $req ] ) && ! empty( $ids[ $paths[ $req ] ] ) ) {
+		$qs = (string) wp_parse_url( $_SERVER['REQUEST_URI'], PHP_URL_QUERY );
+		wp_safe_redirect( s24_policy_url( $paths[ $req ] ) . ( $qs ? '?' . $qs : '' ), 301 );
+		exit;
+	}
+}, 1 );
 
 /* Theo hồ sơ Bộ Công Thương (QĐ 01/2026/QĐ-TSN24H, hiệu lực 20/11/2026): 9 trang đã tạo trên site được thay
    nội dung một lần bằng bản mới trong inc/policies/. Chỉ thay trang còn nguyên bản theme đã tạo (so mã băm
    nội dung cũ); trang chủ đầu tư đã tự sửa thì giữ nguyên và báo trong wp-admin để sửa tay. */
 function s24_policy_old_hashes() {
 	return array(
-		'dieu-khoan-su-dung'   => array( 'f62857d3e66e0d17f9f5baf51c9a9c2c', 'Điều khoản sử dụng' ),
-		'chinh-sach-bao-mat'   => array( '917677def9655f42067326e4df5b8117', 'Chính sách quyền riêng tư và bảo mật' ),
-		'xoa-du-lieu'          => array( '7d7fc95192adc2d6c688c8557425b823', '' ),
-		'chinh-sach-hoan-tien' => array( 'abb0ced6591c6545afa97855de4d70e5', 'Chính sách hoàn tiền và khiếu nại' ),
-		'en'                   => array( 'a238fc8a0d525c0ec515370dcd7ede07', '' ),
-		'en/terms-of-use'      => array( '7bd436c9b761099ea66a7ac145872bce', '' ),
-		'en/privacy-policy'    => array( '442f336b7714137df8e744bcffd44a73', '' ),
-		'en/account-deletion'  => array( '01bd8f978dfce78bf79d8df725e9b193', '' ),
-		'en/refund-policy'     => array( 'a6d26b190a1dbd8b8064e1dc8c5c6f2c', 'Refund and Complaints Policy' ),
+		'chinh-sach/dieu-khoan-su-dung'         => array( 'f62857d3e66e0d17f9f5baf51c9a9c2c', 'Điều khoản sử dụng' ),
+		'chinh-sach/chinh-sach-bao-mat'         => array( '917677def9655f42067326e4df5b8117', 'Chính sách quyền riêng tư và bảo mật' ),
+		'chinh-sach/xoa-du-lieu'                => array( '7d7fc95192adc2d6c688c8557425b823', '' ),
+		'chinh-sach/chinh-sach-hoan-tien'       => array( 'abb0ced6591c6545afa97855de4d70e5', 'Chính sách hoàn tiền và khiếu nại' ),
+		'chinh-sach/en'                         => array( 'a238fc8a0d525c0ec515370dcd7ede07', '' ),
+		'chinh-sach/en/terms-of-use'            => array( '7bd436c9b761099ea66a7ac145872bce', '' ),
+		'chinh-sach/en/privacy-policy'          => array( '442f336b7714137df8e744bcffd44a73', '' ),
+		'chinh-sach/en/account-deletion'        => array( '01bd8f978dfce78bf79d8df725e9b193', '' ),
+		'chinh-sach/en/refund-policy'           => array( 'a6d26b190a1dbd8b8064e1dc8c5c6f2c', 'Refund and Complaints Policy' ),
 	);
 }
 
@@ -60,7 +138,7 @@ add_action( 'admin_init', function () {
 		$post = empty( $ids[ $path ] ) ? null : get_post( $ids[ $path ] );
 		if ( ! $post ) { continue; }
 		$data = array( 'ID' => $post->ID );
-		$new  = (string) file_get_contents( S24_DIR . '/inc/policies/' . str_replace( '/', '-', $path ) . '.html' );
+		$new  = (string) file_get_contents( s24_policy_file( $path ) );
 		$cur  = md5( trim( str_replace( "\r", '', $post->post_content ) ) );
 		if ( $cur === $old[0] ) {
 			$data['post_content'] = $new;
@@ -105,7 +183,7 @@ function s24_seed_policy_pages() {
 			'post_name'      => basename( $path ),
 			'post_parent'    => '.' === $parent ? 0 : (int) ( $ids[ $parent ] ?? 0 ),
 			'post_title'     => $p[0],
-			'post_content'   => (string) file_get_contents( S24_DIR . '/inc/policies/' . str_replace( '/', '-', $path ) . '.html' ),
+			'post_content'   => (string) file_get_contents( s24_policy_file( $path ) ),
 			'comment_status' => 'closed',
 			'ping_status'    => 'closed',
 		) );
@@ -116,8 +194,8 @@ function s24_seed_policy_pages() {
 
 	// Trang quyền riêng tư của WordPress (Cài đặt → Quyền riêng tư) trỏ về trang của mình
 	$cur = (int) get_option( 'wp_page_for_privacy_policy' );
-	if ( ! empty( $ids['chinh-sach-bao-mat'] ) && ( ! $cur || 'publish' !== get_post_status( $cur ) ) ) {
-		update_option( 'wp_page_for_privacy_policy', $ids['chinh-sach-bao-mat'] );
+	if ( ! empty( $ids['chinh-sach/chinh-sach-bao-mat'] ) && ( ! $cur || 'publish' !== get_post_status( $cur ) ) ) {
+		update_option( 'wp_page_for_privacy_policy', $ids['chinh-sach/chinh-sach-bao-mat'] );
 	}
 }
 
@@ -189,9 +267,9 @@ function s24_policy_nav_pages() {
 	$pages = s24_policy_pages();
 	$out   = array();
 	foreach ( $pages as $path => $p ) {
-		if ( 'vi' === $p[2] ) { $out[ $path ] = $p[1]; }
+		if ( 'vi' === $p[2] && 'chinh-sach' !== $path ) { $out[ $path ] = $p[1]; }
 	}
-	$out['en'] = $pages['en'][1];
+	$out['chinh-sach/en'] = $pages['chinh-sach/en'][1];
 	return $out;
 }
 
@@ -251,7 +329,7 @@ add_action( 'admin_init', function () {
 		if ( false === $path ) { continue; }
 		$have[ $path ] = true;
 		$parent        = $parent ?: (int) $item->menu_item_parent;
-		if ( 'en' === $path ) { $en = $item; }
+		if ( 'chinh-sach/en' === $path ) { $en = $item; }
 		$rename = array( 'Hoàn tiền và khiếu nại' => 'Cung cấp dịch vụ và hoàn tiền', 'Quyền riêng tư và bảo mật' => 'Bảo vệ dữ liệu cá nhân' );
 		$short  = s24_policy_nav_pages();
 		if ( isset( $rename[ $item->post_title ] ) ) {
@@ -294,7 +372,7 @@ add_filter( 'nav_menu_link_attributes', function ( $atts, $item ) {
 function s24_policy_nav_fallback() {
 	echo '<li class="menu-item-has-children"><a href="#">Chính sách</a><ul class="sub-menu">';
 	foreach ( s24_policy_nav_pages() as $path => $label ) {
-		s24_policy_link( $path, $label, 'en' === $path ? 'en' : '' );
+		s24_policy_link( $path, $label, 'chinh-sach/en' === $path ? 'en' : '' );
 	}
 	echo '</ul></li>';
 }
@@ -307,10 +385,10 @@ function s24_policy_menu_fallback() {
 	$lang  = $cur ? $pages[ $cur ][2] : 'vi';
 	echo '<ul>';
 	foreach ( $pages as $path => $p ) {
-		if ( $p[2] === $lang && 'en' !== $path ) { s24_policy_link( $path, $p[1] ); }
+		if ( $p[2] === $lang && ! in_array( $path, array( 'chinh-sach', 'chinh-sach/en' ), true ) ) { s24_policy_link( $path, $p[1] ); }
 	}
 	if ( 'vi' === $lang ) {
-		s24_policy_link( 'en', $pages['en'][1], 'en' );
+		s24_policy_link( 'chinh-sach/en', $pages['chinh-sach/en'][1], 'en' );
 	} elseif ( $pages[ $cur ][3] ) {
 		s24_policy_link( $pages[ $cur ][3], 'Tiếng Việt', 'vi' );
 	} else {
