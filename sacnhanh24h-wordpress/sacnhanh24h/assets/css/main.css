@@ -103,6 +103,8 @@ nav a:hover{color:var(--leaf)}
 .tou-card .val{font-family:var(--display);font-size:32px;font-weight:800;margin-top:14px;font-variant-numeric:tabular-nums}
 .tou-card .val small{font-size:13px;font-weight:600;opacity:.75}
 .note{font-size:12px;opacity:.7;margin-top:12px}
+.price-idle{font-size:14px;margin:16px 0 0;opacity:.9}
+.price-idle a{color:var(--lime);font-weight:600}
 @media(max-width:860px){.price-box{grid-template-columns:1fr}.tou{grid-template-columns:1fr}}
 
 /* ================= HỆ THỐNG TRẠM SẠC ================= */
